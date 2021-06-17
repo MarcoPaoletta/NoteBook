@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://FiraCode-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.380392, 0.360784, 0.360784, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 30.0
+margin_right = -5.0
+margin_bottom = -5.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 142.874
+margin_top = 69.7106
+margin_right = 886.874
+margin_bottom = 538.711
+window_title = "Open a File"
+mode = 0
+access = 2
+current_dir = "/Programacion/Juegos/Godot Engine/NoteBook"
+current_path = "/Programacion/Juegos/Godot Engine/NoteBook/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveFileDialog" type="FileDialog" parent="."]
+margin_left = 142.874
+margin_top = 69.7106
+margin_right = 886.874
+margin_bottom = 538.711
+access = 2
+current_dir = "/Programacion/Juegos/Godot Engine/NoteBook"
+current_path = "/Programacion/Juegos/Godot Engine/NoteBook/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButtonFile" type="MenuButton" parent="."]
+margin_left = 17.0
+margin_top = 7.0
+margin_right = 58.0
+margin_bottom = 30.0
+text = "File"
+align = 0
+switch_on_hover = true
+
+[node name="MenuButtonHelp" type="MenuButton" parent="."]
+margin_left = 81.0
+margin_top = 7.0
+margin_right = 120.0
+margin_bottom = 27.0
+text = "Help"
+align = 0
+switch_on_hover = true
+
+[node name="AboutDialog" type="WindowDialog" parent="."]
+margin_left = 283.0
+margin_top = 184.0
+margin_right = 821.0
+margin_bottom = 425.0
+window_title = "About"
+
+[node name="Label" type="Label" parent="AboutDialog"]
+margin_top = 5.0
+margin_right = 483.0
+margin_bottom = 19.0
+text = "Hello and welcome to my little text editor made with Godot Game Engine 3"
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
+[connection signal="file_selected" from="SaveFileDialog" to="." method="_on_SaveFileDialog_file_selected"]
